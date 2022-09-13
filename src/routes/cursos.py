@@ -25,3 +25,20 @@ def get_curso(id):
             return jsonify({}), 404
     except Exception as ex:
         return jsonify({'message':  str(ex)}), 500
+    
+@main.route('get_Or/<id>/<nombre>')
+def get_cursos_by_or(id,nombre):
+    try:
+        cursos = modeloCursos.get_cursos_by_or(id,nombre)
+        return jsonify(cursos)
+    except Exception as ex:
+        return jsonify({'message':  str(ex)}), 500
+    
+    
+@main.route('get_And/<id>/<nombre>')
+def get_cursos_by_and(id,nombre):
+    try:
+        cursos = modeloCursos.get_cursos_by_and(id,nombre)
+        return jsonify(cursos)
+    except Exception as ex:
+        return jsonify({'message':  str(ex)}), 500
