@@ -9,7 +9,7 @@ from routes import grupos
 
 app = Flask(__name__)
 
-CORS(app, resources={"*": {"origins": "http://localhost:9300"}})
+CORS(app, resources={"*": {"origins": "http://localhost:5432"}})
 
 
 def page_not_found(error):
