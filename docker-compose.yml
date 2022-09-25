@@ -1,23 +1,35 @@
-version: "3.8"
+version: latest
 
 services: 
-  postgres:
-    image: postgres
-    restart: always
-    environment: 
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=root
-    ports: 
-      - 5432:5432
 
-  pgadmin:
-    image: dpage/pgadmin4
-    environment: 
-      PGADMIN_DEFAULT_EMAIL: "cdmorau@unal.edu.co"
-      PGADMIN_DEFAULT_PASSWORD: "cdmorau"
+  cursos_service:
+    restart: always
+    build:
+      context: ./
     ports:
-      - "80:80"
-    depends_on: 
-      - postgres 
+      - 5000:5000
+    container_name: servicio_B
+
+  
+
+  # postgres:
+  #   image: postgres
+  #   restart: always
+  #   environment: 
+  #     - DATABASE_HOST=34.73.118.80
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=dinosaurio123
+  #     - POSTGRES_DB=postgres
+  #   ports: 
+  #     - 5432:5432
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment: 
+  #     PGADMIN_DEFAULT_EMAIL: "cdmorau@unal.edu.co"
+  #     PGADMIN_DEFAULT_PASSWORD: "cdmorau"
+  #   ports:
+  #     - "80:80"
+  #   depends_on: 
+  #     - postgres 
+  
